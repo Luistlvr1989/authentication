@@ -1,50 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context="com.belatrix.authentication.ui.RegistrationActivity">
+    tools:context="com.belatrix.authentication.ui.LoginActivity">
 
     <LinearLayout
-        android:id="@+id/llRegistration"
+        android:id="@+id/llLogin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
-
-        <!-- Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/etFirstName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt.first.name"
-                android:inputType="textCapWords" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <!-- Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/etLastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt.last.name"
-                android:inputType="textCapWords" />
-
-        </android.support.design.widget.TextInputLayout>
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
@@ -57,6 +25,9 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_account_circle_white"
+                android:drawableStart="@mipmap/ic_account_circle_white"
+                android:drawablePadding="5dp"
                 android:hint="@string/prompt.email"
                 android:inputType="textEmailAddress" />
 
@@ -75,6 +46,9 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@mipmap/ic_lock_outline_white"
+                android:drawableLeft="@mipmap/ic_lock_outline_white"
+                android:drawablePadding="5dp"
                 android:inputType="textPassword"
                 android:hint="@string/prompt.password"
                 android:maxLength="10"/>
@@ -86,27 +60,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/llRegistration"
-        android:layout_alignRight="@id/llRegistration"
-        android:layout_alignLeft="@id/llRegistration"
-        android:layout_alignEnd="@id/llRegistration"
-        android:layout_alignStart="@id/llRegistration"
+        android:layout_below="@id/llLogin"
+        android:layout_alignRight="@id/llLogin"
+        android:layout_alignLeft="@id/llLogin"
+        android:layout_alignEnd="@id/llLogin"
+        android:layout_alignStart="@id/llLogin"
         android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/action.register"
-            android:onClick="attemptRegister"
+            android:text="@string/action.login"
+            android:onClick="attemptLogin"
             app:backgroundTint="@color/colorButton"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             android:gravity="center"
-            android:text="@string/message.login"
-            android:onClick="login"/>
+            android:text="@string/message.register"
+            android:onClick="register"/>
 
     </LinearLayout>
 
@@ -114,8 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/llRegistration"
-        android:padding="20dp"
+        android:layout_above="@id/llLogin"
+        android:padding="10dp"
         android:contentDescription="@string/message.desc"
         android:src="@drawable/logo_events"/>
 
