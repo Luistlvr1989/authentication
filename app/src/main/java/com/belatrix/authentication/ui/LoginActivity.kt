@@ -4,17 +4,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.belatrix.authentication.AuthenticationApplication
 import com.belatrix.authentication.R
+import com.belatrix.authentication.business.networking.NetworkManager
 import com.belatrix.authentication.utils.ValidationUtils.isEmailValid
 import com.belatrix.authentication.utils.ValidationUtils.isPasswordValid
 import kotlinx.android.synthetic.main.activity_login.*
+import javax.inject.Inject
 
 @Suppress("UNUSED_PARAMETER")
 class LoginActivity : AppCompatActivity() {
+    @Inject
+    lateinit var networkManager: NetworkManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        AuthenticationApplication.component.inject(this)
     }
 
     /**
@@ -53,7 +59,10 @@ class LoginActivity : AppCompatActivity() {
         if (editText != null) {
             editText.requestFocus()
         } else {
-            finish()
+            /*val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()*/
+            networkManager.login("mobilelab@belatrixsf.com", "q1!q1!")
         }
     }
 
